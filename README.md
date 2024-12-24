@@ -37,7 +37,7 @@ These insights provide actionable recommendations for business decisions like cu
 
 Below is the ER diagram for the project, which outlines the relationships between the tables in the database:
 
-![ER Diagram](https://raw.githubusercontent.com/YashChowdhary34/zomato-data-analysis-SQL/main/er_diagram_mysql.png)
+![ER Diagram]![ER_diagram](https://github.com/user-attachments/assets/25012be6-a913-48f0-93fc-b9c614ea28f6)
 
 ---
 
