@@ -1,5 +1,7 @@
 # Zomato Data Analysis - SQL
 
+![Zomato_logo](https://github.com/user-attachments/assets/18a9229f-5b67-48c6-8ed2-6644954544ae)
+
 ## Project Overview
 
 This repository showcases a comprehensive **data analysis project** for a Zomato-like food delivery platform, aimed at solving real-world business problems using SQL. 
