@@ -1,6 +1,6 @@
 # Zomato Data Analysis - SQL
 
-![Zomato_logo](https://github.com/user-attachments/assets/18a9229f-5b67-48c6-8ed2-6644954544ae)
+![Zomato_logo (1)](https://github.com/user-attachments/assets/fdf30ca4-1646-4753-b3a3-83e2a81f51a2)
 
 ## Project Overview
 
