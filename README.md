@@ -1,6 +1,8 @@
 # Zomato Data Analysis - SQL
 
+<div syle="text-align: center;">
 <img src="https://github.com/user-attachments/assets/6d3865f1-165f-4cdf-830b-5e075278e3c2" alt="Sample Image" width="400" height="300">
+</div>
 
 ## Project Overview
 
