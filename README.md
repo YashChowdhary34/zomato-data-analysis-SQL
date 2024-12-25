@@ -1,6 +1,8 @@
 # Zomato Data Analysis - SQL
 
-<img src="https://github.com/user-attachments/assets/6d3865f1-165f-4cdf-830b-5e075278e3c2" alt="Sample Image" width="500" height="300" style="margin-left: 10%; margin-right: 10%">
+<div align="center">
+    <img src="https://github.com/YashChowdhary34/zomato-data-analysis-SQL/blob/main/zomato.jpg" alt="Zomato Logo">
+</div>
 
 ## Project Overview
 
