@@ -1,7 +1,7 @@
 # Zomato Data Analysis - SQL
 
 <div align="center">
-    <img src="https://github.com/user-attachments/assets/d52f2537-5403-4431-8b67-d748979bcc7b" alt="Zomato Logo">
+    <img src="https://github.com/user-attachments/assets/d52f2537-5403-4431-8b67-d748979bcc7b" alt="Zomato Logo" height="300" width="400">
 </div>
 
 ## Project Overview
