@@ -58,12 +58,6 @@ The dataset comprises information about restaurants, including:
 
 ---
 
-## ER Diagram
-
-![ER Diagram](https://github.com/YashChowdhary34/zomato-data-analysis-SQL/blob/master/er-diagram.png)
-
----
-
 ## Tech Stack Used
 
 - **Database**: MySQL
