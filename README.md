@@ -1,109 +1,206 @@
-# Zomato Data Analysis - SQL
+# Zomato Data Analysis Using SQL
 
 <div align="center">
-    <img src="https://github.com/user-attachments/assets/d52f2537-5403-4431-8b67-d748979bcc7b" alt="Zomato Logo" height="300" width="400">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Zomato_logo.png/320px-Zomato_logo.png" alt="Zomato Logo" height="200" width="400">
 </div>
 
-## Project Overview
+## Overview
 
-This repository showcases a comprehensive **data analysis project** for a Zomato-like food delivery platform, aimed at solving real-world business problems using SQL. 
-
-The dataset used in this project is **realistic and tailored to reflect the operations of an Indian food delivery company**. It contains:
-- **5 tables**: Customers, Restaurants, Orders, Riders, and Deliveries.
-- **Over 5,000 records**, including customer demographics, restaurant information, orders, deliveries, and more.
-
-The database was built and queried using **MySQL**, and the analyses cover a wide range of **business problems specific to Zomato’s operations**.
+This project involves analyzing Zomato's restaurant data using SQL to extract meaningful business insights. The dataset includes information on restaurants, locations, cuisines, ratings, and more, enabling comprehensive analysis of the food delivery market.
 
 ---
 
 ## Key Business Problems Solved
 
-This project demonstrates the ability to analyze and provide actionable insights into real-world business challenges. Some of the specific analyses performed include:
-
-1. **Top Ordered Dishes**: Finding the top 5 most frequently ordered dishes by specific customers (e.g., Arjun Mehta) over the last year.
-2. **Popular Time Slots**: Identifying the most active time slots (2-hour intervals) for placing orders.
-3. **Order Value Analysis**: Calculating the average order value (AOV) for high-volume customers.
-4. **High-Value Customers**: Identifying customers who have spent over ₹100,000 on the platform.
-5. **Orders Without Deliveries**: Analyzing undelivered orders by city and restaurant.
-6. **Restaurant Revenue Rankings**: Ranking restaurants based on total revenue generated.
-7. **Rider Performance Metrics**:
-   - Finding the most active riders.
-   - Identifying riders generating the most revenue.
-   - Calculating the average delivery time for each rider.
-8. **Cancellation Rate Comparison**: Comparing cancellation rates across different restaurants and customers.
-9. **Monthly Growth Rates**: Measuring the monthly growth rate of restaurants on the platform.
-
-These insights provide actionable recommendations for business decisions like customer retention, operational efficiency, and revenue optimization.
+1. **[Top Cities by Number of Restaurants](#top-cities-by-number-of-restaurants)**: Identify cities with the highest number of listed restaurants.
+2. **[Most Popular Cuisines](#most-popular-cuisines)**: Determine the most offered cuisines across restaurants.
+3. **[Average Rating by City](#average-rating-by-city)**: Calculate the average restaurant rating for each city.
+4. **[Restaurants Offering Online Delivery](#restaurants-offering-online-delivery)**: Find the percentage of restaurants providing online delivery services.
+5. **[Top Rated Restaurants](#top-rated-restaurants)**: List the highest-rated restaurants overall.
+6. **[Average Cost for Two by City](#average-cost-for-two-by-city)**: Analyze the average dining cost for two people in different cities.
+7. **[Restaurants by Price Range](#restaurants-by-price-range)**: Categorize restaurants based on their price range.
+8. **[Correlation Between Votes and Ratings](#correlation-between-votes-and-ratings)**: Examine the relationship between the number of votes and average ratings.
+9. **[Top Restaurant Chains](#top-restaurant-chains)**: Identify restaurant chains with the most outlets.
+10. **[Distribution of Restaurants by Rating](#distribution-of-restaurants-by-rating)**: Analyze how restaurants are distributed across different rating brackets.
 
 ---
 
-## ER Diagram
+## Objectives
 
-Below is the ER diagram for the project, which outlines the relationships between the tables in the database:
-
-![ER_diagram](https://github.com/user-attachments/assets/25012be6-a913-48f0-93fc-b9c614ea28f6)
-
----
-
-## Tech Stack
-
-- **Database**: MySQL
-- **Languages**: SQL
-- **Tools**: MySQL Workbench, DataGrip (optional for visualization)
+- Perform exploratory data analysis on Zomato's dataset.
+- Utilize SQL queries to derive actionable business insights.
+- Enhance skills in data manipulation and analysis using SQL.
+- Provide recommendations for business strategy based on data findings.
 
 ---
 
 ## Dataset Overview
 
-The dataset contains the following tables and attributes:
+The dataset comprises information about restaurants, including:
 
-### 1. **Customers**
-| Column Name   | Data Type | Description                     |
-|---------------|-----------|---------------------------------|
-| `customer_id` | INT       | Unique ID for each customer    |
-| `customer_name` | VARCHAR  | Name of the customer           |
-| `reg_date`    | DATE      | Registration date of the customer |
+- **Restaurant ID**: Unique identifier for each restaurant.
+- **Restaurant Name**: Name of the restaurant.
+- **City**: Location city of the restaurant.
+- **Address**: Physical address.
+- **Locality**: Specific locality within the city.
+- **Cuisines**: Types of cuisines offered.
+- **Average Cost for Two**: Estimated cost for two people.
+- **Currency**: Currency of the cost.
+- **Has Table Booking**: Indicates if table booking is available.
+- **Has Online Delivery**: Indicates if online delivery is available.
+- **Is Delivering Now**: Indicates if the restaurant is currently delivering.
+- **Switch to Order Menu**: Indicates if there's an option to switch to the order menu.
+- **Price Range**: Price range category.
+- **Aggregate Rating**: Overall average rating.
+- **Rating Color**: Color code representing the rating.
+- **Rating Text**: Textual representation of the rating (e.g., Excellent, Good).
+- **Votes**: Number of votes received.
 
-### 2. **Restaurants**
-| Column Name       | Data Type | Description                         |
-|-------------------|-----------|-------------------------------------|
-| `restaurant_id`   | INT       | Unique ID for each restaurant       |
-| `restaurant_name` | VARCHAR   | Name of the restaurant              |
-| `city`            | VARCHAR   | City where the restaurant is located|
-| `opening_hours`   | VARCHAR   | Operating hours of the restaurant   |
+---
 
-### 3. **Orders**
-| Column Name       | Data Type | Description                             |
-|-------------------|-----------|-----------------------------------------|
-| `order_id`        | INT       | Unique ID for each order                |
-| `customer_id`     | INT       | ID of the customer who placed the order |
-| `restaurant_id`   | INT       | ID of the restaurant fulfilling the order|
-| `order_item`      | VARCHAR   | Name of the ordered item                |
-| `order_date`      | DATE      | Date when the order was placed          |
-| `order_time`      | TIME      | Time when the order was placed          |
-| `order_status`    | VARCHAR   | Status of the order (e.g., Delivered)   |
-| `total_amount`    | FLOAT     | Total amount paid for the order         |
+## ER Diagram
 
-### 4. **Riders**
-| Column Name   | Data Type | Description                  |
-|---------------|-----------|------------------------------|
-| `rider_id`    | INT       | Unique ID for each rider     |
-| `rider_name`  | VARCHAR   | Name of the rider            |
-| `sign_up`     | DATE      | Date when the rider signed up|
+![ER Diagram](https://github.com/YashChowdhary34/zomato-data-analysis-SQL/blob/master/er-diagram.png)
 
-### 5. **Deliveries**
-| Column Name      | Data Type | Description                               |
-|------------------|-----------|-------------------------------------------|
-| `delivery_id`    | INT       | Unique ID for each delivery               |
-| `order_id`       | INT       | ID of the order being delivered           |
-| `delivery_status`| VARCHAR   | Status of the delivery (e.g., Completed)  |
-| `delivery_time`  | TIME      | Time taken to deliver the order           |
-| `rider_id`       | INT       | ID of the rider handling the delivery     |
+---
+
+## Tech Stack Used
+
+- **Database**: MySQL
+- **Development Tool**: MySQL Workbench
+- **Version Control**: Git and GitHub
+
+---
+
+## List of Business Problems and Solutions
+
+### Top Cities by Number of Restaurants
+
+```sql
+SELECT
+    city,
+    COUNT(restaurant_id) AS number_of_restaurants
+FROM restaurants
+GROUP BY city
+ORDER BY number_of_restaurants DESC;
+```
+
+### Most Popular Cuisines
+
+```sql
+SELECT
+    cuisine,
+    COUNT(restaurant_id) AS number_of_restaurants
+FROM restaurant_cuisines
+GROUP BY cuisine
+ORDER BY number_of_restaurants DESC;
+```
+
+### Average Rating by City
+
+```sql
+SELECT
+    city,
+    AVG(aggregate_rating) AS average_rating
+FROM restaurants
+GROUP BY city
+ORDER BY average_rating DESC;
+```
+
+### Restaurants Offering Online Delivery
+
+```sql
+SELECT
+    city,
+    COUNT(restaurant_id) AS total_restaurants,
+    SUM(CASE WHEN has_online_delivery = 'Yes' THEN 1 ELSE 0 END) AS online_delivery_restaurants,
+    (SUM(CASE WHEN has_online_delivery = 'Yes' THEN 1 ELSE 0 END) / COUNT(restaurant_id)) * 100 AS online_delivery_percentage
+FROM restaurants
+GROUP BY city
+ORDER BY online_delivery_percentage DESC;
+```
+
+### Top Rated Restaurants
+
+```sql
+SELECT
+    restaurant_name,
+    city,
+    aggregate_rating
+FROM restaurants
+ORDER BY aggregate_rating DESC
+LIMIT 10;
+```
+
+### Average Cost for Two by City
+
+```sql
+SELECT
+    city,
+    AVG(average_cost_for_two) AS avg_cost_for_two
+FROM restaurants
+GROUP BY city
+ORDER BY avg_cost_for_two DESC;
+```
+
+### Restaurants by Price Range
+
+```sql
+SELECT
+    price_range,
+    COUNT(restaurant_id) AS number_of_restaurants
+FROM restaurants
+GROUP BY price_range
+ORDER BY price_range;
+```
+
+### Correlation Between Votes and Ratings
+
+```sql
+SELECT
+    aggregate_rating,
+    AVG(votes) AS average_votes
+FROM restaurants
+GROUP BY aggregate_rating
+ORDER BY aggregate_rating DESC;
+```
+
+### Top Restaurant Chains
+
+```sql
+SELECT
+    restaurant_name,
+    COUNT(restaurant_id) AS number_of_outlets
+FROM restaurants
+GROUP BY restaurant_name
+HAVING number_of_outlets > 1
+ORDER BY number_of_outlets DESC;
+```
+
+### Distribution of Restaurants by Rating
+
+```sql
+SELECT
+    aggregate_rating,
+    COUNT(restaurant_id) AS number_of_restaurants
+FROM restaurants
+GROUP BY aggregate_rating
+ORDER BY aggregate_rating DESC;
+```
+
+---
+
+## Future Work
+
+1. **Predictive Analysis**: Forecasting restaurant ratings based on current data.
+2. **Customer Segmentation**: Analyzing customer reviews to segment the market.
+3. **Geospatial Analysis**: Mapping restaurant locations to identify high-density areas.
+4. **Time Series Analysis**: Studying trends in restaurant ratings over time.
 
 ---
 
 ## Conclusion
 
-This project demonstrates the effective use of SQL for data analysis in a food delivery platform context. 
-By solving practical business challenges, it provides a foundation for making data-driven decisions to improve customer satisfaction, 
-operational efficiency, and revenue growth.
+This project showcases the application of SQL in analyzing real-world datasets to extract business insights. By examining various aspects of the Zomato dataset, we've provided valuable information that can aid in strategic decision-making for stakeholders in the food delivery industry.
+
+Feel free to explore the repository and contribute by suggesting new problems or enhancements. Happy analyzing!
